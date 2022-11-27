@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Calculadora</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="https://kit.fontawesome.com/d5f6e286c7.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+
+  <meta name="viewport"
+    content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
+</head>
+
+<body>
+  <header id="titul">
+    <h1 class="cabesario">Calculadora</h1>
+  </header>
+  <article>
+    <button onclick="apag_acend()" id="apagar"></button>
+    <div class="div-">
+      <div id="fundo" class="fundo">
+        <button type="button" id="botao-subir" onclick="aparec()"><i id="fa1" class="fa-solid fa-arrow-down"></i><i style="display: none;"  id="fa2" class="fa-solid fa-arrow-up"></i></button>
+
+        <div class="botoes-geral">
+          <button onclick="abrir()" class="form2">R</button>
+
+          <form id="forme2" class="forme2" action="mailto:carlosbeemoth@gmail.com" method="POST" enctype="text/plain">
+            <img onclick="fechar()" class="x" src="https://cdn-icons-png.flaticon.com/512/458/458594.png">
+            <p>Caso encontre algum defeito ou mal configuramento da calculadora,
+            <p style="color: red;">reporte</p>
+            <button class="e-mail">Reclamar</button>
+          </form>
+
+          <h2 id="calc">Calculadora</h2>
+          <h3 class="titul-cell">&copy; Desenvolvido por Telmo Ferreira</h3>
+          <div id="sumir-aparecer" style="margin: 0; padding: 0;">
+            <div id="button02" class="button02">Elevado
+            </div>
+            <input title="Elevado" id="value02" value="^" onclick="elevado(); abrir1()"
+              type="button" style=" background-color:  rgba(0, 0, 0, 0.103) ;">
+            <div id="button03" class="button03">Fatorial
+            </div>
+            <input  title="Fatorial" id="value03" value="!" onclick="fatorial(); abrir2()"
+              type="button" style=" background-color: rgba(0, 0, 0, 0.103);">
+            <div id="button04" class="button04">PI
+            </div>
+            <input title="PI" id="value04" value="𝝅" onclick="numPI(); abrir3()"
+              type="button" style=" background-color: rgba(0, 0, 0, 0.103);">
+            <div id="button05" class="button05">Raiz quadrada
+            </div>
+            <input title="Raiz quadrada" id="value05" value="√" onclick="numRaizQ(); abrir4()"
+              type="button" style=" background-color: rgba(0, 0, 0, 0.103);">
+          </div>
+
+
+          <input id="value05" value="CE" onclick="limpaTudo()" type="button" style=" background-color: #116d11;">
+
+            <input id="value06" onclick="numParents();" value="()" type="button"
+            style="  background-color: rgb(51, 76, 129);">
+
+
+              <input title="Porcentagem" id="value07" onclick="numPorcentagem(); abrir0()" value="%" type="button" style="background-color: rgb(51, 76, 129);">
+
+          <div id="button01" class="button01">Porcentagem</div>
+
+          <input id="value08" onclick="adicionar_parametro('/');numDivisao(); " value="÷" type="button"
+            style=" background-color: rgb(51, 76, 129);">
+
+
+
+          <input id="value09" onclick="adicionar_parametro(1);num1()" value="1" type="button" class="n1">
+
+          <input id="value10" onclick="adicionar_parametro(2); num2()" value="2" type="button" class="n2">
+
+          <input id="value11" onclick="adicionar_parametro(3);num3(); " value="3" type="button" class="n3">
+
+          <input id="value12" onclick="adicionar_parametro('*');numVezes(); " value="x" type="button" class="nVezes"
+            class="lateral-" style=" background-color: rgb(51, 76, 129);">
+
+
+          <input id="value13" onclick="adicionar_parametro(4);num4(); " value="4" type="button" class="n4">
+
+          <input id="value14" onclick="adicionar_parametro(5);num5(); " value="5" type="button" class="n5">
+
+          <input id="value15" onclick="adicionar_parametro(6);num6(); " value="6" type="button" class="n6">
+
+          <input id="value16" onclick="adicionar_parametro('-');numMenos(); " value="-" type="button" class="nMenos"
+            class="lateral-" style=" background-color: rgb(51, 76, 129);">
+
+
+          <input id="value17" onclick="adicionar_parametro(7);num7(); " value="7" type="button" class="n7">
+
+          <input id="value18" onclick="adicionar_parametro(8);num8(); " value="8" type="button" class="n8">
+
+          <input id="value19" onclick="adicionar_parametro(9);num9(); " value="9" type="button" class="n9">
+
+          <input id="value20" onclick="adicionar_parametro('+'); numMais(); " value="+" type="button" class="nMais"
+            class="lateral-" style=" background-color: rgb(51, 76, 129);">
+
+
+          <input id="value21" onclick="adicionar_parametro(0);num0(); " value="0" type="button" class="n0">
+
+          <input id="value22" onclick="adicionar_parametro('.');numvir(); " value="," type="button" class="n,">
+
+          <input id="value23" type="button" value=" " onclick="removerUm(); " style=" background-color: #00000043;"
+            class="removeUm">
+
+          <input id="value24" onclick="result()" value="=" type="button" class="lateral-"
+            style=" background-color: rgb(51, 76, 129);">
+        </div>
+      </div>
+      <div id="selectId" class="selectClass">
+        <input onkeydown="noPerm(event)" value="0" name="tela" id="inputAparenc" type="text">
+        <input onkeydown="noPerm(event)" style="color: rgb(0, 0, 0);  font-weight: bold;" class="inputis"
+          id="parametroCalculado">
+      </div>
+      <div id="select">
+        <select onclick="myFunction()" id="select-list" class="select-list" size="3"></select>
+      </div>
+    </div>
+  </article>
+  <form id="form" class="form" action="mailto:carlosbeemoth@gmail.com" method="POST" enctype="text/plain">
+    <p>Caso encontre algum defeito ou mal configuramento da calculadora,
+    <p style="color: red;">reporte</p>
+    <button class="e-mail">Reclamar</button>
+  </form>
+  <footer id="rodape">
+    <h2> &nbsp;&copy;Desenvolvido por Telmo Ferreira</h2>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+  </script>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+      <script>
+          if (window.matchMedia("(min-width:600px)").matches) {
+              $(function() {
+                $( "#value07" ).tooltip({
+                   position: {
+                      my: "center bottom",
+                      at: "center top-10",
+                      collision: "none"
+                   }
+                });
+             });
+            }
+      </script>
+            <script>
+              if (window.matchMedia("(min-width:600px)").matches) {
+              $(function() {
+                $( "#value02" ).tooltip({
+                   position: {
+                      my: "center bottom",
+                      at: "center top-10",
+                      collision: "none"
+                   }
+                });
+             });
+            }
+          </script>
+           <script>
+              if (window.matchMedia("(min-width:600px)").matches) {
+              $(function() {
+                $( "#value03" ).tooltip({
+                   position: {
+                      my: "center bottom",
+                      at: "center top-10",
+                      collision: "none"
+                   }
+                });
+             });
+            }
+          </script>
+            <script>
+              if (window.matchMedia("(min-width:600px)").matches) {
+              $(function() {
+                $( "#value04" ).tooltip({
+                   position: {
+                      my: "center bottom",
+                      at: "center top-10",
+                      collision: "none"
+                   }
+                });
+             });
+            }
+          </script>
+          <script>
+              if (window.matchMedia("(min-width:600px)").matches) {
+              $(function() {
+                $( "#value05" ).tooltip({
+                   position: {
+                      my: "center bottom",
+                      at: "center top-10",
+                      collision: "none"
+                   }
+                });
+             });
+            }
+          </script>
+            <style>
+
+              .ui-tooltip-content::after, .ui-tooltip-content::before {
+                 content: "";
+                 position: absolute;
+                 border-style: solid;
+                 display: block;
+                 left: 10px;
+              }
+              .ui-tooltip-content::before {
+                 bottom: -10px;
+                 border-color: #AAA transparent;
+                 border-width: 10px 10px 0;
+              }
+              .ui-tooltip-content::after {
+                 bottom: -7px;
+                 border-color: white transparent;
+                 border-width: 10px 10px 0;
+              }
+           </style>
+</body>
+</html>
