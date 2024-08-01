@@ -27,6 +27,6 @@ O intuito principal deste projeto é aprofundar o entendimento de lógica de pro
 
 ## Acesso
 
-Você pode acessar a calculadora ao vivo clicando no link abaixo:
+Você pode acessar a calculadora clicando no link abaixo:
 
 [Calculadora em JavaScript](https://calculadorabasicmot.netlify.app/)
